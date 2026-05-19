@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Exact Breakpoints Requested by User */
+  --breakpoint-xs: 320px;   /* Mobile Small */
+  --breakpoint-sm: 425px;   /* Mobile Large */
+  --breakpoint-md: 768px;   /* Tablet */
+  --breakpoint-lg: 1024px;  /* Laptop */
+  --breakpoint-xl: 1440px;  /* Desktop / Large Screen */
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+}
+
+:root {
+  /* Light Mode */
+  --background: #f8fafc;
+  --background-gradient-start: #f1f5f9;
+  --background-gradient-end: #e2e8f0;
+  
+  --foreground: #0f172a;
+  
+  --card: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(0, 0, 0, 0.15); /* Prominent border in light mode */
+  
+  --primary: #3b82f6;
+  --primary-glow: rgba(59, 130, 246, 0.5);
+  --primary-foreground: #ffffff;
+  
+  --muted: rgba(241, 245, 249, 0.8);
+  --muted-foreground: #475569;
+  --border: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode */
+    --background: #060913;
+    --background-gradient-start: #060913;
+    --background-gradient-end: #0f172a;
+    
+    --foreground: #f8fafc;
+    
+    --card: rgba(15, 23, 42, 0.6);
+    --card-border: rgba(255, 255, 255, 0.2); /* Prominent border in dark mode */
+    
+    --primary: #3b82f6;
+    --primary-glow: rgba(59, 130, 246, 0.5);
+    --primary-foreground: #ffffff;
+    
+    --muted: rgba(30, 41, 59, 0.6);
+    --muted-foreground: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: linear-gradient(135deg, var(--background-gradient-start) 0%, var(--background-gradient-end) 100%);
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.glass-nav {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Smooth Glowing Accents */
+.glow-effect {
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+/* Custom Scrollbar for aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
